@@ -1,0 +1,14 @@
+class TestIFenceGenPacket
+!!!158213.cpp!!!	setUp() : void
+pTestObj = new Generators::IFenceGenPacket();
+!!!158341.cpp!!!	tearDown() : void
+delete pTestObj;
+!!!158469.cpp!!!	testSetFenceNumber() : void
+
+	TS_WARN("Test testSetFenceNumber() not implemented");
+!!!158597.cpp!!!	testGetNumberBoardSize() : void
+
+	TS_WARN("Test testGetNumberBoardSize() not implemented");
+!!!158725.cpp!!!	testAppendFencePoint() : void
+
+	TS_WARN("Test testAppendFencePoint() not implemented");

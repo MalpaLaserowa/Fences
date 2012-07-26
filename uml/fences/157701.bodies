@@ -1,0 +1,8 @@
+class TestNumberSelector
+!!!159877.cpp!!!	setUp() : void
+pTestObj = new Generators::NumberSelector();
+!!!160005.cpp!!!	tearDown() : void
+delete pTestObj;
+!!!160133.cpp!!!	testSelectNumbersToPrint() : void
+
+	TS_WARN("Test testSelectNumbersToPrint() not implemented");

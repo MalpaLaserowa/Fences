@@ -1,0 +1,9 @@
+class Vector2D
+!!!134917.cpp!!!	Vector2D(in rows : uint, in colls : uint)
+	array.resize(rows);
+
+	for(unsigned int row_index = 0; row_index < rows; row_index++)
+		array[row_index].resize(cols);
+
+!!!135045.cpp!!!	operator[](in Index : uint) : vector<T> &
+	return array[Index];

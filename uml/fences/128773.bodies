@@ -1,0 +1,6 @@
+class ExpansiveGenerator
+!!!141957.cpp!!!	prepareGenBoard(in rows : uint, in colls : uint) : void
+    for(int board_row; board_row < rows; board_row++)
+    {
+        for(int board_coll, )
+    }

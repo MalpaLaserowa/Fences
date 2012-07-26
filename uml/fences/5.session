@@ -1,0 +1,24 @@
+window_sizes 1280 741 398 876 603 64
+windows_style
+diagrams
+  classdiagram_ref 128133 // main_diag
+    931 543 100 4 0 0
+  classdiagram_ref 134661 // FencePacket
+    806 547 100 4 0 0
+  classdiagram_ref 134917 // Utils
+    928 547 100 4 0 0
+  active  classdiagram_ref 135173 // Generators
+    876 603 100 4 84 0
+  classdiagram_ref 135301 // Visualisation
+    744 437 100 4 0 0
+  sequencediagram_ref 141829 // main
+    742 437 100 4 456 0
+  componentdiagram_ref 134789 // Components
+    742 437 100 4 0 0
+end
+show_stereotypes
+selected 
+package_ref 129 // fences
+open
+end
+end

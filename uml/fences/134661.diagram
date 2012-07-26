@@ -1,0 +1,48 @@
+format 74
+
+classcanvas 129157 class_ref 141957 // FenceNumber
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 109.5 286.5 2000
+end
+classcanvas 129285 class_ref 128901 // FencePacket
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 357.5 248.5 2000
+end
+classcanvas 129541 class_ref 142469 // FencePoint
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 649 288 2000
+end
+classcanvas 130309 class_ref 143109 // IFenceGenPacket
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 198.5 57.5 2000
+end
+classcanvas 130821 class_ref 143877 // IFenceDrawPacket
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 498.5 71.5 2000
+end
+relationcanvas 129413 relation_ref 142341 // <directional composition>
+  from ref 129285 z 2001 stereotype "<<Vector2D>>" xyz 239 322 3000 to ref 129157
+  role_a_pos 217 300 3000 no_role_b
+  multiplicity_a_pos 217 330 3000 no_multiplicity_b
+end
+relationcanvas 129669 relation_ref 143109 // <directional composition>
+  decenter_end 479
+  from ref 129285 z 2001 stereotype "<<LinkedList>>" xyz 528 322 3000 to ref 129541
+  role_a_pos 565 300 3000 no_role_b
+  multiplicity_a_pos 633 330 3000 no_multiplicity_b
+end
+relationcanvas 130437 relation_ref 143749 // <realization>
+  from ref 129285 z 2001 to point 426 190
+  line 130693 z 2001 to point 263 190
+  line 130565 z 2001 to ref 130309
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 130949 relation_ref 144389 // <realization>
+  from ref 129285 z 2001 to point 426 191
+  line 131077 z 2001 to point 561 191
+  line 131205 z 2001 to ref 130821
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+end

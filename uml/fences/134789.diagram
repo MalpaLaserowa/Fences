@@ -1,0 +1,22 @@
+format 74
+
+packagecanvas 128005 
+  package_ref 134661 // FencePacket
+    xyzwh 155 109 2000 85 85
+end
+packagecanvas 128133 
+  package_ref 128133 // main
+    xyzwh 327 114 2000 65 85
+end
+packagecanvas 128261 
+  package_ref 134789 // Utils
+    xyzwh 516 85 2000 65 85
+end
+packagecanvas 128389 
+  package_ref 134917 // Generators
+    xyzwh 510 254 2000 73 85
+end
+simplerelationcanvas 128517 simplerelation_ref 128005
+  from ref 128389 z 2001 stereotype "<<import>>" xyz 512 211 3000 to ref 128261
+end
+end

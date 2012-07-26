@@ -1,0 +1,8 @@
+class TestgenBoardCell
+!!!158853.cpp!!!	setUp() : void
+pTestObj = new Generators::genBoardCell();
+!!!158981.cpp!!!	tearDown() : void
+delete pTestObj;
+!!!159109.cpp!!!	testTriggerSideRails() : void
+
+	TS_WARN("Test testTriggerSideRails() not implemented");

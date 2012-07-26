@@ -1,0 +1,5 @@
+class TestgenFencePoint
+!!!159237.cpp!!!	setUp() : void
+pTestObj = new Generators::genFencePoint();
+!!!159365.cpp!!!	tearDown() : void
+delete pTestObj;
