@@ -16,7 +16,4 @@ packagecanvas 128389
   package_ref 134917 // Generators
     xyzwh 510 254 2000 73 85
 end
-simplerelationcanvas 128517 simplerelation_ref 128005
-  from ref 128389 z 2001 stereotype "<<import>>" xyz 512 211 3000 to ref 128261
-end
 end

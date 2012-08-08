@@ -19,5 +19,10 @@ void GraphicalPlot::printAllStakes() {
   // Bouml preserved body end 00024E85
 }
 
+GraphicalPlot::~GraphicalPlot() {
+  // Bouml preserved body begin 0002FA05
+  // Bouml preserved body end 0002FA05
+}
+
 
 } // namespace Visualisation

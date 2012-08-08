@@ -26,21 +26,20 @@ class Vector2D : public QVector<T> {
 
     void resize(unsigned int rows, unsigned int colls);
 
+    void size(unsigned int & rows, unsigned int & colls);
+
 };
 template<class T>
 Vector2D<T>::Vector2D() {
   // Bouml preserved body begin 00028B05
+    m_rows = m_colls = 0;
   // Bouml preserved body end 00028B05
 }
 
 template<class T>
 Vector2D<T>::Vector2D(unsigned int rows, unsigned int colls) {
   // Bouml preserved body begin 00020F05
-	array.resize(rows);
-
-	for(unsigned int row_index = 0; row_index < rows; row_index++)
-        array[row_index].resize(colls);
-
+    resize(rows, colls);
   // Bouml preserved body end 00020F05
 }
 
@@ -54,7 +53,25 @@ QVector<T> & Vector2D<T>::operator[](unsigned int Index) {
 template<class T>
 void Vector2D<T>::resize(unsigned int rows, unsigned int colls) {
   // Bouml preserved body begin 00022905
+    array.resize(rows);
+
+    for(unsigned int row_index = 0; row_index < rows; row_index++)
+        array[row_index].resize(colls);
+
+    m_rows = rows;
+    m_colls = colls;
+
   // Bouml preserved body end 00022905
+}
+
+template<class T>
+void Vector2D<T>::size(unsigned int & rows, unsigned int & colls) {
+  // Bouml preserved body begin 0002DD05
+     rows = array.size();
+     colls = array[0].size();
+
+
+  // Bouml preserved body end 0002DD05
 }
 
 

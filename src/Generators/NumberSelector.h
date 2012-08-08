@@ -12,6 +12,10 @@ class NumberSelector : public Main::IFenceNumberSelector {
   public:
     virtual void selectNumbersToPrint(FencePacket::FencePacket & fpacket);
 
+    NumberSelector();
+
+    virtual ~NumberSelector();
+
 };
 
 } // namespace Generators

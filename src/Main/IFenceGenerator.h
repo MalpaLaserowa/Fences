@@ -10,6 +10,8 @@ class IFenceGenerator {
   public:
     virtual void generateFenceAndNumbers(Generators::IFenceGenPacket & fpacket) = 0;
 
+    virtual ~IFenceGenerator() {};
+
 };
 
 } // namespace Main

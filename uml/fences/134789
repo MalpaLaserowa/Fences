@@ -1,6 +1,6 @@
 format 74
 "Utils" // Utils
-  revision 4
+  revision 7
   modified_by 5 "Ladi"
   // class settings
   //class diagram settings
@@ -267,6 +267,22 @@ ${inlines}
 	
       end
 
+      operation 187653 "size"
+	preserve_cpp_body_indent public explicit_return_type "void"
+	nparams 2
+	  param out name "rows" explicit_type "uint"
+	  param out name "colls" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}, ${t1} & ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} & ${p0}, ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
       classrelation 158085 // <realization>
 	relation 157957 -_-|>
 	  a public
@@ -290,6 +306,229 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
+    end
+
+    class 164229 "EnumTraitsdirection_4"
+      visibility package stereotype "struct"
+      cpp_decl "${comment}
+CXXTEST_ENUM_TRAITS( direction_4,
+${members});
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      ncouples 1
+      key "CxxTestSuite" value "1"
+      classrelation 172165 // <dependency>
+	relation 172037 -_->
+	  a default
+	    cpp default "#include in source"
+	    classrelation_ref 172165 // <dependency>
+	  b parent class_ref 128261 // direction_4
+      end
+
+      attribute 158341 "UP"
+	public explicit_type ""
+	cpp_decl "	CXXTEST_ENUM_MEMBER( ${name} )"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 158469 "RIGHT"
+	public explicit_type ""
+	cpp_decl "	CXXTEST_ENUM_MEMBER( ${name} )"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 158597 "DOWN"
+	public explicit_type ""
+	cpp_decl "	CXXTEST_ENUM_MEMBER( ${name} )"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 158725 "LEFT"
+	public explicit_type ""
+	cpp_decl "	CXXTEST_ENUM_MEMBER( ${name} )"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+    end
+
+    class 164357 "TestLinkedList"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name} : public CxxTest::TestSuite {
+${members}};
+
+${inlines}"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      ncouples 1
+      key "CxxTestSuite" value "1"
+      classrelation 172293 // <dependency>
+	relation 172165 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 172293 // <dependency>
+	  b parent class_ref 142597 // LinkedList
+      end
+
+      attribute 158853 "pTestObj"
+	public explicit_type "Utils::LinkedList*"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 173189 "setUp"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 173317 "tearDown"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+    end
+
+    class 164613 "TestVector2D"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name} : public CxxTest::TestSuite {
+${members}};
+
+${inlines}"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      ncouples 1
+      key "CxxTestSuite" value "1"
+      classrelation 172549 // <dependency>
+	relation 172421 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 172549 // <dependency>
+	  b parent class_ref 135429 // Vector2D
+      end
+
+      attribute 159109 "pTestObj"
+	public explicit_type "Utils::Vector2D*"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      operation 173701 "setUp"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 173829 "tearDown"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 173957 "testVector2D"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 174085 "testOperatorSubscript"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 174213 "testResize"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
     end
   end
 
@@ -348,6 +587,27 @@ ${namespace_end}
 "
       associated_classes
 	class_ref 135429 // Vector2D
+      end
+    end
+
+    artifact 169861 "UtilsTests"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+#include <cxxtest/TestSuite.h>
+${includes}
+${declarations}
+
+${definition}
+
+#endif
+"
+      associated_classes
+	class_ref 164229 // EnumTraitsdirection_4
+	class_ref 164357 // TestLinkedList
+	class_ref 164613 // TestVector2D
       end
     end
   end

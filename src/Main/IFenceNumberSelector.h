@@ -10,6 +10,8 @@ class IFenceNumberSelector {
   public:
     virtual void selectNumbersToPrint(FencePacket::FencePacket & fpacket) = 0;
 
+    virtual ~IFenceNumberSelector() {};
+
 };
 
 } // namespace Main

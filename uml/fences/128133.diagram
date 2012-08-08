@@ -18,17 +18,17 @@ classcanvas 133125 class_ref 150661 // FencePuzzle
 end
 relationcanvas 133253 relation_ref 151045 // <directional aggregation>
   from ref 133125 z 2001 to ref 129541
-  role_a_pos 251 126 3000 no_role_b
-  multiplicity_a_pos 224 126 3000 multiplicity_b_pos 345 270 3000
+  role_a_pos 260 144 3000 no_role_b
+  multiplicity_a_pos 233 144 3000 multiplicity_b_pos 344 270 3000
 end
 relationcanvas 133381 relation_ref 151173 // <directional aggregation>
   from ref 133125 z 2001 to ref 132869
-  role_a_pos 414 126 3000 no_role_b
-  multiplicity_a_pos 387 126 3000 multiplicity_b_pos 368 270 3000
+  role_a_pos 415 144 3000 no_role_b
+  multiplicity_a_pos 388 144 3000 multiplicity_b_pos 369 270 3000
 end
 relationcanvas 133509 relation_ref 151301 // <directional aggregation>
   from ref 133125 z 2001 to ref 132997
-  role_a_pos 456 126 3000 no_role_b
-  multiplicity_a_pos 517 156 3000 multiplicity_b_pos 410 290 3000
+  role_a_pos 447 145 3000 no_role_b
+  multiplicity_a_pos 508 175 3000 multiplicity_b_pos 413 291 3000
 end
 end

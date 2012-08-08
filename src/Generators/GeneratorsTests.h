@@ -1,5 +1,5 @@
-#ifndef GENERATORS_ALLTESTS_H
-#define GENERATORS_ALLTESTS_H
+#ifndef GENERATORS_GENERATORSTESTS_H
+#define GENERATORS_GENERATORSTESTS_H
 
 
 #include <cxxtest/TestSuite.h>
@@ -8,7 +8,6 @@
 #include "ExpansiveGenerator.h"
 #include "NumberSelector.h"
 
-namespace Generators {
 
 class TestgenBoardCell : public CxxTest::TestSuite {
   public:
@@ -126,5 +125,4 @@ inline void TestNumberSelector::testSelectNumbersToPrint() {
 }
 
 
-} // namespace Generators
 #endif

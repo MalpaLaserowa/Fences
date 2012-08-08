@@ -14,6 +14,8 @@ class IFenceVisualisation {
 
     virtual void printAllStakes() = 0;
 
+    virtual ~IFenceVisualisation() {};
+
 };
 
 } // namespace Main

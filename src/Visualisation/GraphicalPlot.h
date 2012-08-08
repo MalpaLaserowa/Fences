@@ -19,6 +19,8 @@ class GraphicalPlot : public Main::IFenceVisualisation {
 
     virtual void printAllStakes();
 
+    virtual ~GraphicalPlot();
+
 };
 
 } // namespace Visualisation

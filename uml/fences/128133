@@ -1,6 +1,6 @@
 format 74
 "main" // main
-  revision 6
+  revision 8
   modified_by 5 "Ladi"
   // class settings
   //class diagram settings
@@ -80,6 +80,17 @@ ${members}};
 	preserve_python_body_indent 
 	
       end
+
+      operation 194565 "~IFenceGenerator"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw} {};
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
     end
 
     class 143365 "IFenceNumberSelector"
@@ -99,6 +110,17 @@ ${inlines}
 	nparams 1
 	  param inout name "fpacket" type class_ref 128901 // FencePacket
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 194693 "~IFenceNumberSelector"
+	abstract preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw} {};
 "
 	preserve_java_body_indent 
 	preserve_php_body_indent 
@@ -147,6 +169,17 @@ ${inlines}
 	abstract preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 194821 "~IFenceVisualisation"
+	abstract preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw} {};
 "
 	preserve_java_body_indent 
 	preserve_php_body_indent 

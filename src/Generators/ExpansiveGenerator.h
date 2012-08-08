@@ -6,7 +6,6 @@
 #include "Vector2D.h"
 #include "LinkedList.h"
 
-using namespace Utils;
 namespace Generators { class genBoardCell; } 
 namespace Generators { class genFencePoint; } 
 namespace Generators { class IFenceGenPacket; } 
@@ -15,15 +14,15 @@ namespace Generators {
 
 class ExpansiveGenerator : public Main::IFenceGenerator {
   private:
-    Vector2D<genBoardCell> gen_board;
+    Utils::Vector2D<genBoardCell> gen_board;
 
-    Vector2D<genFencePoint> fence_point_pool;
+    Utils::Vector2D<genFencePoint> fence_point_pool;
 
-    Vector2D<bool> horizontal_rail_pool;
+    Utils::Vector2D<bool> horizontal_rail_pool;
 
-    Vector2D<bool> vertiacal_rail_pool;
+    Utils::Vector2D<bool> vertiacal_rail_pool;
 
-    LinkedList<genBoardCell*> expanded_cells;
+    Utils::LinkedList<genBoardCell*> expanded_cells;
 
     void prepareGenBoard(unsigned int rows, unsigned int colls);
 
@@ -34,6 +33,10 @@ class ExpansiveGenerator : public Main::IFenceGenerator {
 
   public:
     virtual void generateFenceAndNumbers(IFenceGenPacket & fpacket);
+
+    ExpansiveGenerator();
+
+    virtual ~ExpansiveGenerator();
 
 };
 

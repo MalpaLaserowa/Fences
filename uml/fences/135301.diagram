@@ -6,7 +6,7 @@ classcanvas 128005 class_ref 143621 // GraphicalPlot
 end
 classcanvas 128133 class_ref 143749 // TextPlot
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 515 245 2000
+  xyz 514 244 2000
 end
 classcanvas 128261 class_ref 143493 // IFenceVisualisation
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -20,6 +20,14 @@ classcanvas 128773 class_ref 144005 // FenceVisPoint
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
   xyz 84 197 2000
 end
+classcanvas 128901 class_ref 171141 // TextScreenCell
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 527 458 2000
+end
+classcanvas 129157 class_ref 135429 // Vector2D
+  draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility yes show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
+  xyz 361.5 403.5 2000
+end
 relationcanvas 128389 relation_ref 144133 // <realization>
   from ref 128005 z 2001 to ref 128261
   no_role_a no_role_b
@@ -27,6 +35,16 @@ relationcanvas 128389 relation_ref 144133 // <realization>
 end
 relationcanvas 128517 relation_ref 144261 // <realization>
   from ref 128133 z 2001 to ref 128261
+  no_role_a no_role_b
+  no_multiplicity_a no_multiplicity_b
+end
+relationcanvas 129029 relation_ref 178949 // <directional composition>
+  from ref 128133 z 2001 stereotype "<<:Vector2D>>" xyz 533.5 424 3000 to ref 128901
+  role_a_pos 590 435 3000 no_role_b
+  multiplicity_a_pos 565 435 3000 no_multiplicity_b
+end
+relationcanvas 129285 relation_ref 179077 // <dependency>
+  from ref 128133 z 2001 to ref 129157
   no_role_a no_role_b
   no_multiplicity_a no_multiplicity_b
 end

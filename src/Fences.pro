@@ -42,7 +42,8 @@ HEADERS += \
     Main/FencePuzzle.h \
     Utils/direction_4.h \
     Utils/LinkedList.h \
-    Utils/Vector2D.h
+    Utils/Vector2D.h \
+    Visualisation/TextScreenCell.h
 
 INCLUDEPATH += Visualisation/ \
     Generators/ \

@@ -1,0 +1,5 @@
+class TestLinkedList
+!!!173189.cpp!!!	setUp() : void
+pTestObj = new Utils::LinkedList();
+!!!173317.cpp!!!	tearDown() : void
+delete pTestObj;
