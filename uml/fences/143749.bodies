@@ -1,0 +1,69 @@
+class TextPlot
+!!!194181.cpp!!!	prepareTextScreen(in rows : uint, in cols : uint) : void
+
+    m_text_screen_rows = rows * 2 + 1;
+    m_text_screen_cols = cols * 2 + 1;
+
+    TextScreen.resize(m_text_screen_rows, m_text_screen_cols);
+    clearTextScreen();
+!!!209029.cpp!!!	clearTextScreen() : void
+
+    for(unsigned int row = 0; row < m_text_screen_rows; row++)
+    {
+        for(unsigned int col = 0; col < m_text_screen_cols; col++)
+        {
+            TextScreen[row][col].content = ' ';
+        }
+    }
+!!!151301.cpp!!!	printNumbers(in fpacket : IFenceDrawPacket) : void
+
+    unsigned int board_rows, board_colls;
+
+    fpacket.getNumberBoardSize(board_rows, board_colls);
+
+    for(unsigned int row = 0; row < board_rows; row++)
+    {
+        for(unsigned int coll = 0; coll < board_colls; coll++)
+            TextScreen[2 * row + 1][2 * coll + 1].content = fpacket.getFenceNumberXY(row, coll);
+    }
+!!!151429.cpp!!!	printFence(in fpacket : IFenceDrawPacket) : void
+
+
+    FenceVisPoint scaled_point;
+    const FenceVisPoint* prevPoint = fpacket.getFencePoint(0); // Tady by bylo lepsi vrace ukazatel na point...
+
+    unsigned int pointCount = fpacket.getFencePointCount();
+    for(unsigned int pointIndex = 1; pointIndex < pointCount; pointIndex++)
+    {
+        const FenceVisPoint* currentPoint = fpacket.getFencePoint(pointIndex);
+
+        int d_x = currentPoint->x - prevPoint->x;
+        int d_y = currentPoint->y - prevPoint->y;
+
+        Q_ASSERT(fabs(d_x) <= 1);
+        Q_ASSERT(fabs(d_y) <= 1);
+
+        char line = ' ';
+        if(d_x)   // Horizontal line
+            line = '_';
+        else      // Vertical line
+            line = '|';
+
+        currentPoint->scale(2.0, scaled_point);
+        TextScreen[scaled_point.x + d_x][scaled_point.y + d_y].content = line;
+
+        prevPoint = currentPoint;
+    }
+
+    /****/
+            /*get point
+
+            loop
+            get point
+            urci smer
+            scale 2;
+            nacpi do pole*/
+                   //
+!!!194309.cpp!!!	TextPlot(in rows : uint, in cols : uint)
+
+   prepareTextScreen(rows, cols);

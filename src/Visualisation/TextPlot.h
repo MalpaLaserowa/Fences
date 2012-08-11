@@ -7,15 +7,23 @@
 
 namespace Visualisation { class IFenceDrawPacket; } 
 namespace Visualisation { class TextScreenCell; } 
+namespace Visualisation { class FenceVisPoint; } 
 
 namespace Visualisation {
 
 /**
- * Class responsible for text representation of fence drawings.
+ * *
+ *  * Class responsible for text representation of fence drawings.
  */
 class TextPlot : public Main::IFenceVisualisation {
   private:
-    void prepareTextScreen(unsigned int rows, unsigned int colls);
+    unsigned int m_text_screen_rows;
+
+    unsigned int m_text_screen_cols;
+
+    void prepareTextScreen(unsigned int rows, unsigned int cols);
+
+    void clearTextScreen();
 
 
   public:
@@ -31,7 +39,7 @@ class TextPlot : public Main::IFenceVisualisation {
 
 
   public:
-    TextPlot();
+    TextPlot(unsigned int rows, unsigned int cols);
 
     virtual ~TextPlot();
 

@@ -43,7 +43,8 @@ HEADERS += \
     Utils/direction_4.h \
     Utils/LinkedList.h \
     Utils/Vector2D.h \
-    Visualisation/TextScreenCell.h
+    Visualisation/TextScreenCell.h \
+    Utils/shared_ptr.h
 
 INCLUDEPATH += Visualisation/ \
     Generators/ \
@@ -51,4 +52,4 @@ INCLUDEPATH += Visualisation/ \
     Main/ \
     Utils/
 
-
+QMAKE_CXXFLAGS += -std=c++11

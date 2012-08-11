@@ -15,3 +15,7 @@ using namespace std;"
 
 "QVector" "#include <QVector>"
 
+"std::shared_ptr" "#include <memory>"
+
+"aaa" "#include <bbb>"
+

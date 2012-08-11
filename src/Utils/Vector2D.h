@@ -8,7 +8,7 @@
 namespace Utils {
 
 template<class T>
-class Vector2D : public QVector<T> {
+class Vector2D {
   private:
     QVector<QVector<T> > array;
 

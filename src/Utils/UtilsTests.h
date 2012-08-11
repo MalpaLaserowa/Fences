@@ -8,6 +8,13 @@
 #include "Vector2D.h"
 
 
+
+CXXTEST_ENUM_TRAITS( direction_4,
+	CXXTEST_ENUM_MEMBER( UP )
+	CXXTEST_ENUM_MEMBER( RIGHT )
+	CXXTEST_ENUM_MEMBER( DOWN )
+	CXXTEST_ENUM_MEMBER( LEFT )
+);
 class TestLinkedList : public CxxTest::TestSuite {
   public:
     Utils::LinkedList* pTestObj;

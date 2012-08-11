@@ -1,6 +1,6 @@
 format 74
 "Visualisation" // Visualisation
-  revision 4
+  revision 6
   modified_by 5 "Ladi"
   // class settings
   //class diagram settings
@@ -143,7 +143,8 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
-      comment "Class responsible for text representation of fence drawings."
+      comment "*
+ * Class responsible for text representation of fence drawings."
       classrelation 144389 // <realization>
 	relation 144261 -_-|>
 	  a public
@@ -152,14 +153,48 @@ ${inlines}
 	  b parent class_ref 143493 // IFenceVisualisation
       end
 
+      attribute 172165 "m_text_screen_rows"
+	private explicit_type "uint"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
+      attribute 172293 "m_text_screen_cols"
+	private explicit_type "uint"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+"
+	java_decl ""
+	php_decl ""
+	python_decl ""
+	idl_decl ""
+      end
+
       operation 194181 "prepareTextScreen"
 	preserve_cpp_body_indent private explicit_return_type "void"
 	nparams 2
 	  param in name "rows" explicit_type "uint"
-	  param in name "colls" explicit_type "uint"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+	  param in name "cols" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 209029 "clearTextScreen"
+	preserve_cpp_body_indent private explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
 "
 	preserve_java_body_indent 
@@ -172,7 +207,7 @@ ${inlines}
 	preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
 	nparams 1
 	  param in name "fpacket" type class_ref 143877 // IFenceDrawPacket
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
@@ -222,25 +257,19 @@ ${inlines}
 	  b parent class_ref 171141 // TextScreenCell
       end
 
-      classrelation 179205 // <dependency>
-	relation 179077 -_->
-	  a package
-	    cpp default "#include in header"
-	    classrelation_ref 179205 // <dependency>
-	  b parent class_ref 135429 // Vector2D
-      end
-
       operation 194309 "TextPlot"
-	public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 2
+	  param in name "rows" explicit_type "uint"
+	  param in name "cols" explicit_type "uint"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${volatile}${throw};
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+	cpp_def "${comment}${inline}${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${throw}{
   ${body}}
 "
-	
-	
-	
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
 	
       end
 
@@ -249,13 +278,29 @@ ${inlines}
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
   ${body}}
 "
 	
 	
 	
 	
+      end
+
+      classrelation 179205 // <dependency>
+	relation 179077 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 179205 // <dependency>
+	  b parent class_ref 135429 // Vector2D
+      end
+
+      classrelation 185733 // <dependency>
+	relation 185605 -_->
+	  a package
+	    cpp default "#include in source"
+	    classrelation_ref 185733 // <dependency>
+	  b parent class_ref 144005 // FenceVisPoint
       end
     end
 
@@ -285,11 +330,11 @@ ${inlines}
 	
       end
 
-      operation 143493 "getNextFencePoint"
-	abstract preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+      operation 143493 "getFencePoint"
+	abstract preserve_cpp_body_indent const cpp_virtual public return_type class_ref 144005 // FenceVisPoint
 	nparams 1
-	  param inout name "fpoint" type class_ref 144005 // FenceVisPoint
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param in name "index" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type}* ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	preserve_java_body_indent 
 	preserve_php_body_indent 
@@ -303,6 +348,17 @@ ${inlines}
 	  param out name "rows" explicit_type "uint"
 	  param out name "colls" explicit_type "uint"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}, ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 208517 "getFencePointCount"
+	abstract preserve_cpp_body_indent const cpp_virtual public explicit_return_type "uint"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
 	preserve_java_body_indent 
 	preserve_php_body_indent 
@@ -358,12 +414,27 @@ ${inlines}
       end
 
       operation 143621 "scale"
-	preserve_cpp_body_indent public explicit_return_type "void"
-	nparams 1
+	preserve_cpp_body_indent const public explicit_return_type "void"
+	nparams 2
 	  param in name "scaling_factor" explicit_type "double"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	  param out name "scaled_point" type class_ref 144005 // FenceVisPoint
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 201861 "FenceVisPoint"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
   ${body}}
 "
 	preserve_java_body_indent 
@@ -396,16 +467,13 @@ ${inlines}
       end
 
       operation 201605 "TextScreenCell"
-	public explicit_return_type ""
+	preserve_cpp_body_indent public explicit_return_type ""
 	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw} : content(0) {}
 "
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
-"
-	
-	
-	
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
 	
       end
     end

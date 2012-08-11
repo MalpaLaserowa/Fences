@@ -10,7 +10,9 @@ class FenceVisPoint {
 
     unsigned int y;
 
-    void scale(double scaling_factor);
+    void scale(double scaling_factor, FenceVisPoint & scaled_point) const;
+
+    FenceVisPoint();
 
 };
 

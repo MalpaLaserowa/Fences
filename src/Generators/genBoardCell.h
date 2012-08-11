@@ -2,15 +2,17 @@
 #define GENERATORS_GENBOARDCELL_H
 
 
+#include "SharedPtr.h"
+
 namespace Generators { class genFencePoint; } 
 
 namespace Generators {
 
 class genBoardCell {
   private:
-    genFencePoint * board_stakes[4];
+    Utils::SharedPtr<genFencePoint> board_stakes[4];
 
-    bool * side_rails[4];
+    Utils::SharedPtr<bool> side_rails[4];
 
 
   public:

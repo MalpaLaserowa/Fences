@@ -55,7 +55,9 @@ class FencePacket : public Generators::IFenceGenPacket, public Visualisation::IF
 
     virtual unsigned int getFenceNumberXY(unsigned int row, unsigned int coll);
 
-    virtual void getNextFencePoint(Visualisation::FenceVisPoint & fpoint);
+    virtual unsigned int getFencePointCount() const;
+
+    const virtual Visualisation::FenceVisPoint& getFencePoint(unsigned int index) const;
 
 };
 

@@ -1,6 +1,6 @@
 format 74
 "Generators" // Generators
-  revision 10
+  revision 13
   modified_by 5 "Ladi"
   // class settings
   //class diagram settings
@@ -122,19 +122,21 @@ ${inlines}
       idl_decl ""
       explicit_switch_type ""
       
-      classrelation 128517 // board_stakes (<directional aggregation>)
-	relation 128389 o-->
-	  a role_name "board_stakes" multiplicity "[4]" private
-	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${multiplicity}${value};
+      classrelation 128517 // board_stakes (<directional composition>)
+	relation 128389 *-->
+	  stereotype "Utils::SharedPtr"
+	  a role_name "board_stakes" multiplicity "*" private
+	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value}[4];
 "
-	    classrelation_ref 128517 // board_stakes (<directional aggregation>)
+	    classrelation_ref 128517 // board_stakes (<directional composition>)
 	  b parent class_ref 128133 // genFencePoint
       end
 
       attribute 128261 "side_rails"
 	private explicit_type "bool"
-	multiplicity "[4]"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} * ${name}${multiplicity}${value};
+	multiplicity "*"
+	stereotype "Utils::SharedPtr"
+	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value}[4];
 "
 	java_decl ""
 	php_decl ""
@@ -154,6 +156,15 @@ ${inlines}
 	preserve_php_body_indent 
 	preserve_python_body_indent 
 	
+      end
+
+      classrelation 198917 // <dependency>
+	relation 198789 -_->
+	  stereotype "import"
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 198917 // <dependency>
+	  b parent class_ref 177797 // SharedPtr
       end
     end
 

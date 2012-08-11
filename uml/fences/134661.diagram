@@ -18,16 +18,16 @@ classcanvas 130309 class_ref 143109 // IFenceGenPacket
 end
 classcanvas 130821 class_ref 143877 // IFenceDrawPacket
   draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
-  xyz 498.5 71.5 2000
+  xyz 496.5 37.5 2000
 end
 relationcanvas 129413 relation_ref 142341 // <directional composition>
-  from ref 129285 z 2001 stereotype "<<Vector2D>>" xyz 239 322 3000 to ref 129157
-  role_a_pos 217 300 3000 no_role_b
-  multiplicity_a_pos 217 330 3000 no_multiplicity_b
+  from ref 129285 z 2001 stereotype "<<Vector2D>>" xyz 239 325.5 3000 to ref 129157
+  role_a_pos 217 301 3000 no_role_b
+  multiplicity_a_pos 217 331 3000 no_multiplicity_b
 end
 relationcanvas 129669 relation_ref 143109 // <directional composition>
   decenter_end 479
-  from ref 129285 z 2001 stereotype "<<LinkedList>>" xyz 528 322 3000 to ref 129541
+  from ref 129285 z 2001 stereotype "<<LinkedList>>" xyz 528 325.5 3000 to ref 129541
   role_a_pos 565 300 3000 no_role_b
   multiplicity_a_pos 633 330 3000 no_multiplicity_b
 end

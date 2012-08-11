@@ -1,30 +1,28 @@
-window_sizes 1280 741 373 901 603 64
+window_sizes 1920 1021 373 1541 883 64
 windows_style
 diagrams
   classdiagram_ref 128133 // main_diag
     931 543 100 4 0 0
   classdiagram_ref 134661 // FencePacket
-    806 547 100 4 48 0
-  classdiagram_ref 134917 // Utils
+    806 547 100 4 0 0
+  active  classdiagram_ref 134917 // Utils
     928 547 100 4 0 0
   classdiagram_ref 135173 // Generators
-    761 603 100 4 84 0
-  active  classdiagram_ref 135301 // Visualisation
-    901 603 100 4 72 0
+    963 740 100 4 141 0
+  classdiagram_ref 135301 // Visualisation
+    901 603 100 4 108 0
   componentdiagram_ref 134789 // Components
-    742 437 100 4 0 0
+    744 437 100 4 0 0
 end
 show_stereotypes
 marked
-  classrelation_ref 171909 // <dependency>
-  classrelation_ref 172037 // <dependency>
+  classrelation_ref 179205 // <dependency>
+  classrelation_ref 185733 // <dependency>
 end
 selected 
-  package_ref 135045 // Visualisation
+  package_ref 129 // fences
 open
-  class_ref 128645 // IFenceGenerator
-  class_ref 143365 // IFenceNumberSelector
-  class_ref 143493 // IFenceVisualisation
-  deploymentview_ref 128133 // main_view
+  classview_ref 134789 // Utils
+  deploymentview_ref 134661 // Utils
 end
 end

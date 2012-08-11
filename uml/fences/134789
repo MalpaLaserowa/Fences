@@ -1,6 +1,6 @@
 format 74
 "Utils" // Utils
-  revision 7
+  revision 9
   modified_by 5 "Ladi"
   // class settings
   //class diagram settings
@@ -163,9 +163,6 @@ ${inlines}
       nformals 1
       formal name "T" type "class" explicit_default_value ""
         explicit_extends ""
-      nactuals 1
-      actual class class_ref 142853 // QVector
-        rank 0 explicit_value "T"
       cpp_decl "${comment}${template}class ${name}${inherit} {
 ${members}};
 ${inlines}
@@ -283,11 +280,11 @@ ${inlines}
 	
       end
 
-      classrelation 158085 // <realization>
-	relation 157957 -_-|>
-	  a public
-	    cpp default "${type}"
-	    classrelation_ref 158085 // <realization>
+      classrelation 192389 // <dependency>
+	relation 192261 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 192389 // <dependency>
 	  b parent class_ref 142853 // QVector
       end
     end
@@ -530,6 +527,49 @@ ${inlines}"
 	
       end
     end
+
+    class 177669 "std::shared_ptr"
+      visibility package 
+      nformals 1
+      formal name "T" type "class" explicit_default_value ""
+        explicit_extends ""
+      cpp_external cpp_decl "${name}
+#include <memory>
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+    end
+
+    class 177797 "SharedPtr"
+      visibility package 
+      nformals 1
+      formal name "T" type "class" explicit_default_value ""
+        explicit_extends ""
+      nactuals 1
+      actual class class_ref 177669 // std::shared_ptr
+        rank 0 explicit_value "T"
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      classrelation 192261 // <realization>
+	relation 192133 -_-|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 192261 // <realization>
+	  b parent class_ref 177669 // std::shared_ptr
+      end
+    end
   end
 
   deploymentview 134661 "Utils"
@@ -608,6 +648,24 @@ ${definition}
 	class_ref 164229 // EnumTraitsdirection_4
 	class_ref 164357 // TestLinkedList
 	class_ref 164613 // TestVector2D
+      end
+    end
+
+    artifact 182917 "shared_ptr"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      associated_classes
+	class_ref 177797 // SharedPtr
       end
     end
   end
