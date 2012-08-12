@@ -28,7 +28,7 @@ relationcanvas 133381 relation_ref 151173 // <directional aggregation>
 end
 relationcanvas 133509 relation_ref 151301 // <directional aggregation>
   from ref 133125 z 2001 to ref 132997
-  role_a_pos 447 145 3000 no_role_b
-  multiplicity_a_pos 508 175 3000 multiplicity_b_pos 413 291 3000
+  role_a_pos 447 152 3000 no_role_b
+  multiplicity_a_pos 508 182 3000 multiplicity_b_pos 414 291 3000
 end
 end

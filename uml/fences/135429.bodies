@@ -1,9 +1,23 @@
 class Vector2D
+!!!166661.cpp!!!	Vector2D()
+    m_rows = m_colls = 0;
 !!!134917.cpp!!!	Vector2D(in rows : uint, in colls : uint)
-	array.resize(rows);
-
-	for(unsigned int row_index = 0; row_index < rows; row_index++)
-		array[row_index].resize(cols);
-
-!!!135045.cpp!!!	operator[](in Index : uint) : vector<T> &
+    resize(rows, colls);
+!!!135045.cpp!!!	operator[](in Index : uint) : QVector<T> &
 	return array[Index];
+!!!223109.cpp!!!	operator[](in Index : uint) : const QVector<T> &
+	return array[Index];
+!!!141573.cpp!!!	resize(in rows : uint, in colls : uint) : void
+    array.resize(rows);
+
+    for(unsigned int row_index = 0; row_index < rows; row_index++)
+        array[row_index].resize(colls);
+
+    m_rows = rows;
+    m_colls = colls;
+
+!!!187653.cpp!!!	size(out rows : uint, out colls : uint) : void
+     rows = array.size();
+     colls = array[0].size();
+
+

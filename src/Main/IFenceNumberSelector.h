@@ -2,13 +2,13 @@
 #define MAIN_IFENCENUMBERSELECTOR_H
 
 
-namespace FencePacket { class FencePacket; } 
+namespace FencePack { class FencePacket; } 
 
 namespace Main {
 
 class IFenceNumberSelector {
   public:
-    virtual void selectNumbersToPrint(FencePacket::FencePacket & fpacket) = 0;
+    virtual void selectNumbersToPrint(FencePack::FencePacket & fpacket) = 0;
 
     virtual ~IFenceNumberSelector() {};
 

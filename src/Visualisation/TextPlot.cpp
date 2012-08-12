@@ -2,7 +2,6 @@
 #include "TextPlot.h"
 #include "IFenceDrawPacket.h"
 #include "TextScreenCell.h"
-#include "FenceVisPoint.h"
 
 namespace Visualisation {
 
@@ -45,28 +44,29 @@ void TextPlot::printNumbers(const IFenceDrawPacket & fpacket) {
 void TextPlot::printFence(const IFenceDrawPacket & fpacket) {
   // Bouml preserved body begin 00024F85
 
-    FenceVisPoint scaled_point;
-    FenceVisPoint prevPoint = fpacket.getFencePoint(0); // Tady by bylo lepsi vrace ukazatel na point...
+    Utils::Point2D scaled_point;
+    Utils::Point2D prevPoint = fpacket.getFencePoint(0); // Tady by bylo lepsi vrace ukazatel na point...
 
     unsigned int pointCount = fpacket.getFencePointCount();
     for(unsigned int pointIndex = 1; pointIndex < pointCount; pointIndex++)
     {
-        const FenceVisPoint& currentPoint = fpacket.getFencePoint(pointIndex);
+        Utils::Point2D currentPoint = fpacket.getFencePoint(pointIndex);
+        Utils::Point2D deltaPoint = currentPoint;
 
-        int d_x = currentPoint.x - prevPoint.x;
-        int d_y = currentPoint.y - prevPoint.y;
+        deltaPoint -= prevPoint;
 
-        Q_ASSERT(fabs(d_x) <= 1);
-        Q_ASSERT(fabs(d_y) <= 1);
+        Q_ASSERT(abs(deltaPoint.x()) <= 1);
+        Q_ASSERT(abs(deltaPoint.y()) <= 1);
 
         char line = ' ';
-        if(d_x)   // Horizontal line
+        if(deltaPoint.x())   // Horizontal line
             line = '_';
         else      // Vertical line
             line = '|';
 
-        currentPoint.scale(2.0, scaled_point);
-        TextScreen[scaled_point.x + d_x][scaled_point.y + d_y].content = line;
+        scaled_point = scalePoint(currentPoint, 2.0);
+        scaled_point += deltaPoint;
+        TextScreen[scaled_point.x()][scaled_point.y()].content = line;
 
         prevPoint = currentPoint;
     }
@@ -97,6 +97,15 @@ TextPlot::TextPlot(unsigned int rows, unsigned int cols){
 TextPlot::~TextPlot(){
   // Bouml preserved body begin 0002F985
   // Bouml preserved body end 0002F985
+}
+
+Utils::Point2D TextPlot::scalePoint(const Utils::Point2D & point, double scale_factor) {
+  // Bouml preserved body begin 00036B85
+    Utils::Point2D scaled(point);
+
+    scaled *= scale_factor;
+    return scaled;
+  // Bouml preserved body end 00036B85
 }
 
 

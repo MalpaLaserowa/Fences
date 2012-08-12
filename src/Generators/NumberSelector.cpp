@@ -4,7 +4,7 @@
 
 namespace Generators {
 
-void NumberSelector::selectNumbersToPrint(FencePacket::FencePacket & fpacket) {
+void NumberSelector::selectNumbersToPrint(FencePack::FencePacket & fpacket) {
   // Bouml preserved body begin 00025085
   // Bouml preserved body end 00025085
 }

@@ -18,7 +18,6 @@ TEMPLATE = app
 SOURCES += main.cpp \
     Visualisation/GraphicalPlot.cpp \
     Visualisation/TextPlot.cpp \
-    Visualisation/FenceVisPoint.cpp \
     Generators/genBoardCell.cpp \
     Generators/ExpansiveGenerator.cpp \
     Generators/NumberSelector.cpp \
@@ -29,7 +28,6 @@ HEADERS += \
     Visualisation/GraphicalPlot.h \
     Visualisation/TextPlot.h \
     Visualisation/IFenceDrawPacket.h \
-    Visualisation/FenceVisPoint.h \
     Generators/IFenceGenPacket.h \
     Generators/genBoardCell.h \
     Generators/genFencePoint.h \
@@ -44,7 +42,8 @@ HEADERS += \
     Utils/LinkedList.h \
     Utils/Vector2D.h \
     Visualisation/TextScreenCell.h \
-    Utils/shared_ptr.h
+    Utils/SharedPtr.h \
+    Utils/Point2D.h
 
 INCLUDEPATH += Visualisation/ \
     Generators/ \

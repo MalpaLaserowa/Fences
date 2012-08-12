@@ -1,6 +1,6 @@
 format 74
 "Generators" // Generators
-  revision 13
+  revision 14
   modified_by 5 "Ladi"
   // class settings
   //class diagram settings
@@ -74,7 +74,7 @@ ${members}};
 	abstract preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
 	nparams 3
 	  param in name "row" explicit_type "uint"
-	  param in name "coll" explicit_type "uint"
+	  param in name "col" explicit_type "uint"
 	  param in name "new_number" explicit_type "uint"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
 "
@@ -85,10 +85,10 @@ ${members}};
       end
 
       operation 143109 "getNumberBoardSize"
-	abstract preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	abstract preserve_cpp_body_indent const cpp_virtual public explicit_return_type "void"
 	nparams 2
 	  param out name "rows" explicit_type "uint"
-	  param out name "colls" explicit_type "uint"
+	  param out name "cols" explicit_type "uint"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}, ${t1} & ${p1}${)}${const}${volatile}${throw}${abstract};
 "
 	preserve_java_body_indent 
@@ -100,7 +100,7 @@ ${members}};
       operation 141701 "appendFencePoint"
 	abstract preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
 	nparams 1
-	  param in name "NewPoint" type class_ref 128133 // genFencePoint
+	  param in name "NewPoint" type class_ref 184325 // Point2D
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
 "
 	preserve_java_body_indent 
@@ -201,24 +201,26 @@ ${inlines}
 	idl_decl ""
       end
 
-      attribute 144005 "x"
-	public explicit_type "uint"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
+      classrelation 205829 // <generalisation>
+	relation 205701 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 205829 // <generalisation>
+	  b parent class_ref 184325 // Point2D
       end
 
-      attribute 144133 "y"
-	public explicit_type "uint"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+      operation 225541 "genFencePoint"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw} : Point2D() {}
 "
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
       end
     end
 
@@ -497,7 +499,7 @@ ${inlines}"
       end
 
       operation 158853 "setUp"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -511,7 +513,7 @@ ${inlines}"
       end
 
       operation 158981 "tearDown"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -525,7 +527,7 @@ ${inlines}"
       end
 
       operation 159109 "testTriggerSideRails"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -572,7 +574,7 @@ ${inlines}"
       end
 
       operation 159237 "setUp"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -586,7 +588,7 @@ ${inlines}"
       end
 
       operation 159365 "tearDown"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -634,7 +636,7 @@ ${inlines}"
       end
 
       operation 159493 "setUp"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -648,7 +650,7 @@ ${inlines}"
       end
 
       operation 159621 "tearDown"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -662,7 +664,7 @@ ${inlines}"
       end
 
       operation 159749 "testGenerateFenceAndNumbers"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -709,7 +711,7 @@ ${inlines}"
       end
 
       operation 159877 "setUp"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -723,7 +725,7 @@ ${inlines}"
       end
 
       operation 160005 "tearDown"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -737,7 +739,7 @@ ${inlines}"
       end
 
       operation 160133 "testSelectNumbersToPrint"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "

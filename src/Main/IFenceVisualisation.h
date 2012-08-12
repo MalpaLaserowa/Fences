@@ -2,6 +2,8 @@
 #define MAIN_IFENCEVISUALISATION_H
 
 
+#include "Point2D.h"
+
 namespace Visualisation { class IFenceDrawPacket; } 
 
 namespace Main {
@@ -15,6 +17,10 @@ class IFenceVisualisation {
     virtual void printAllStakes() = 0;
 
     virtual ~IFenceVisualisation() {};
+
+
+  protected:
+    virtual Utils::Point2D scalePoint(const Utils::Point2D & point, double scale_factor) = 0;
 
 };
 

@@ -63,3 +63,8 @@ class TextPlot
                    //
 !!!194309.cpp!!!	TextPlot(in rows : uint, in cols : uint)
    prepareTextScreen(rows, cols);
+!!!224133.cpp!!!	scalePoint(in point : Point2D, in scale_factor : double) : Point2D
+    Utils::Point2D scaled(point);
+
+    scaled *= scale_factor;
+    return scaled;

@@ -2,9 +2,11 @@
 #define GENERATORS_GENFENCEPOINT_H
 
 
+#include "Point2D.h"
+
 namespace Generators {
 
-class genFencePoint {
+class genFencePoint : public Utils::Point2D {
   private:
     genFencePoint *Neighbours[4];
 
@@ -12,9 +14,7 @@ class genFencePoint {
   public:
     bool included_in_fence;
 
-    unsigned int x;
-
-    unsigned int y;
+    genFencePoint() : Point2D() {}
 
 };
 

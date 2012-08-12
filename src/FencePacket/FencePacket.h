@@ -1,37 +1,23 @@
-#ifndef FENCEPACKET_FENCEPACKET_H
-#define FENCEPACKET_FENCEPACKET_H
+#ifndef FENCEPACK_FENCEPACKET_H
+#define FENCEPACK_FENCEPACKET_H
 
 
-#include "Vector2D.h"
-#include "LinkedList.h"
+#include "Point2D.h"
 #include "IFenceGenPacket.h"
 #include "IFenceDrawPacket.h"
+#include "Vector2D.h"
+#include "LinkedList.h"
 
-using namespace Utils;
-
-namespace Generators { class genFencePoint; } 
-namespace Visualisation { class FenceVisPoint; } 
-
-namespace FencePacket {
+namespace FencePack {
 
 /**
  * Class representing one number forming the fence number grind.
  */
 class FenceNumber {
-  private:
+  public:
     unsigned int Number;
 
     bool ToBePrinted;
-
-};
-/**
- * Helper class representing 2D point.
- */
-class FencePoint {
-  private:
-    unsigned int x;
-
-    unsigned int y;
 
 };
 /**
@@ -39,27 +25,27 @@ class FencePoint {
  */
 class FencePacket : public Generators::IFenceGenPacket, public Visualisation::IFenceDrawPacket {
   private:
-    Vector2D<FenceNumber> FenceNumbers;
+    Utils::Vector2D<FenceNumber> FenceNumbers;
 
-    LinkedList<FencePoint> FencePoints;
+    Utils::LinkedList<Utils::Point2D> FencePoints;
 
 
   public:
-    void setNumberBoardSize(unsigned int rows, unsigned int colls);
-
-    virtual void setFenceNumber(unsigned int row, unsigned int coll, unsigned int new_number);
-
-    virtual void getNumberBoardSize(unsigned int & rows, unsigned int & colls);
-
-    virtual void appendFencePoint(const Generators::genFencePoint & NewPoint);
-
-    virtual unsigned int getFenceNumberXY(unsigned int row, unsigned int coll);
+    void setNumberBoardSize(unsigned int rows, unsigned int cols);
 
     virtual unsigned int getFencePointCount() const;
 
-    const virtual Visualisation::FenceVisPoint& getFencePoint(unsigned int index) const;
+    virtual unsigned int getFenceNumberXY(unsigned int row, unsigned int col) const;
+
+    virtual void setFenceNumber(unsigned int row, unsigned int col, unsigned int new_number);
+
+    virtual void getNumberBoardSize(unsigned int & rows, unsigned int & cols) const;
+
+    virtual void appendFencePoint(const Utils::Point2D & NewPoint);
+
+    virtual Utils::Point2D getFencePoint(unsigned int index) const;
 
 };
 
-} // namespace FencePacket
+} // namespace FencePack
 #endif

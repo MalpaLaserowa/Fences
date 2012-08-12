@@ -1,0 +1,26 @@
+class TestFencePacket
+!!!224261.cpp!!!	setUp() : void
+pTestObj = new FencePacket::FencePacket();
+!!!224389.cpp!!!	tearDown() : void
+delete pTestObj;
+!!!224517.cpp!!!	testSetNumberBoardSize() : void
+
+	TS_WARN("Test testSetNumberBoardSize() not implemented");
+!!!224645.cpp!!!	testGetFencePointCount() : void
+
+	TS_WARN("Test testGetFencePointCount() not implemented");
+!!!224773.cpp!!!	testGetFenceNumberXY() : void
+
+	TS_WARN("Test testGetFenceNumberXY() not implemented");
+!!!224901.cpp!!!	testSetFenceNumber() : void
+
+	TS_WARN("Test testSetFenceNumber() not implemented");
+!!!225029.cpp!!!	testGetNumberBoardSize() : void
+
+	TS_WARN("Test testGetNumberBoardSize() not implemented");
+!!!225157.cpp!!!	testAppendFencePoint() : void
+
+	TS_WARN("Test testAppendFencePoint() not implemented");
+!!!225285.cpp!!!	testGetFencePoint() : void
+
+	TS_WARN("Test testGetFencePoint() not implemented");

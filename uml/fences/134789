@@ -1,6 +1,6 @@
 format 74
 "Utils" // Utils
-  revision 9
+  revision 10
   modified_by 5 "Ladi"
   // class settings
   //class diagram settings
@@ -248,6 +248,21 @@ ${inlines}
 	
       end
 
+      operation 223109 "operator[]"
+	preserve_cpp_body_indent const public explicit_return_type "const QVector<T> &"
+	nparams 1
+	  param in name "Index" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
       operation 141573 "resize"
 	preserve_cpp_body_indent public explicit_return_type "void"
 	nparams 2
@@ -265,7 +280,7 @@ ${inlines}
       end
 
       operation 187653 "size"
-	preserve_cpp_body_indent public explicit_return_type "void"
+	preserve_cpp_body_indent const public explicit_return_type "void"
 	nparams 2
 	  param out name "rows" explicit_type "uint"
 	  param out name "colls" explicit_type "uint"
@@ -305,65 +320,6 @@ ${inlines}
       
     end
 
-    class 164229 "EnumTraitsdirection_4"
-      visibility package stereotype "struct"
-      cpp_decl "${comment}
-CXXTEST_ENUM_TRAITS( direction_4,
-${members});
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      ncouples 1
-      key "CxxTestSuite" value "1"
-      classrelation 172165 // <dependency>
-	relation 172037 -_->
-	  a default
-	    cpp default "#include in source"
-	    classrelation_ref 172165 // <dependency>
-	  b parent class_ref 128261 // direction_4
-      end
-
-      attribute 158341 "UP"
-	public explicit_type ""
-	cpp_decl "	CXXTEST_ENUM_MEMBER( ${name} )"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      attribute 158469 "RIGHT"
-	public explicit_type ""
-	cpp_decl "	CXXTEST_ENUM_MEMBER( ${name} )"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      attribute 158597 "DOWN"
-	public explicit_type ""
-	cpp_decl "	CXXTEST_ENUM_MEMBER( ${name} )"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      attribute 158725 "LEFT"
-	public explicit_type ""
-	cpp_decl "	CXXTEST_ENUM_MEMBER( ${name} )"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-    end
-
     class 164357 "TestLinkedList"
       visibility package 
       cpp_decl "${comment}${template}class ${name} : public CxxTest::TestSuite {
@@ -387,7 +343,7 @@ ${inlines}"
       end
 
       attribute 158853 "pTestObj"
-	public explicit_type "Utils::LinkedList*"
+	public explicit_type "Utils::LinkedList<int>*"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -397,7 +353,7 @@ ${inlines}"
       end
 
       operation 173189 "setUp"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -411,7 +367,7 @@ ${inlines}"
       end
 
       operation 173317 "tearDown"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -448,7 +404,7 @@ ${inlines}"
       end
 
       attribute 159109 "pTestObj"
-	public explicit_type "Utils::Vector2D*"
+	public explicit_type "Utils::Vector2D<int>*"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -458,7 +414,7 @@ ${inlines}"
       end
 
       operation 173701 "setUp"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -472,7 +428,7 @@ ${inlines}"
       end
 
       operation 173829 "tearDown"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -486,7 +442,7 @@ ${inlines}"
       end
 
       operation 173957 "testVector2D"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -500,7 +456,7 @@ ${inlines}"
       end
 
       operation 174085 "testOperatorSubscript"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -514,7 +470,7 @@ ${inlines}"
       end
 
       operation 174213 "testResize"
-	cpp_inline public explicit_return_type "void"
+	preserve_cpp_body_indent cpp_inline public explicit_return_type "void"
 	nparams 0
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
@@ -569,6 +525,70 @@ ${inlines}
 	    classrelation_ref 192261 // <realization>
 	  b parent class_ref 177669 // std::shared_ptr
       end
+    end
+
+    class 184325 "Point2D"
+      visibility package 
+      cpp_decl "${comment}${template}class ${name}${inherit} {
+${members}};
+${inlines}
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
+      operation 225413 "Point2D"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 2
+	  param in name "x" explicit_type "uint"
+	  param in name "y" explicit_type "uint"
+	cpp_decl "    ${comment}${inline}${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${volatile}${throw} : QPoint(x, y) {}
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${volatile}${throw} {
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 225669 "Point2D"
+	preserve_cpp_body_indent public explicit_return_type ""
+	nparams 0
+	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw}: QPoint() {}
+"
+	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      classrelation 205701 // <generalisation>
+	relation 205573 ---|>
+	  a public
+	    cpp default "${type}"
+	    classrelation_ref 205701 // <generalisation>
+	  b parent class_ref 184453 // QPoint
+      end
+    end
+
+    class 184453 "QPoint"
+      visibility package 
+      cpp_external cpp_decl "${name}
+#include <${name}>
+"
+      java_decl ""
+      php_decl ""
+      python_2_2 python_decl ""
+      idl_decl ""
+      explicit_switch_type ""
+      
     end
   end
 
@@ -645,13 +665,12 @@ ${definition}
 #endif
 "
       associated_classes
-	class_ref 164229 // EnumTraitsdirection_4
 	class_ref 164357 // TestLinkedList
 	class_ref 164613 // TestVector2D
       end
     end
 
-    artifact 182917 "shared_ptr"
+    artifact 182917 "SharedPtr"
       stereotype "source"
       cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
 #define ${NAMESPACE}_${NAME}_H
@@ -666,6 +685,24 @@ ${namespace_end}
 "
       associated_classes
 	class_ref 177797 // SharedPtr
+      end
+    end
+
+    artifact 189445 "Point2D"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+${includes}
+${declarations}
+${namespace_start}
+${definition}
+${namespace_end}
+#endif
+"
+      associated_classes
+	class_ref 184325 // Point2D
       end
     end
   end

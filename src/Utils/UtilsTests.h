@@ -3,21 +3,13 @@
 
 
 #include <cxxtest/TestSuite.h>
-#include "direction_4.h"
 #include "LinkedList.h"
 #include "Vector2D.h"
 
 
-
-CXXTEST_ENUM_TRAITS( direction_4,
-	CXXTEST_ENUM_MEMBER( UP )
-	CXXTEST_ENUM_MEMBER( RIGHT )
-	CXXTEST_ENUM_MEMBER( DOWN )
-	CXXTEST_ENUM_MEMBER( LEFT )
-);
 class TestLinkedList : public CxxTest::TestSuite {
   public:
-    Utils::LinkedList* pTestObj;
+    Utils::LinkedList<int>* pTestObj;
 
     inline void setUp();
 
@@ -39,7 +31,7 @@ inline void TestLinkedList::tearDown() {
 
 class TestVector2D : public CxxTest::TestSuite {
   public:
-    Utils::Vector2D* pTestObj;
+    Utils::Vector2D<int>* pTestObj;
 
     inline void setUp();
 

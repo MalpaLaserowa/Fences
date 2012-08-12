@@ -1,0 +1,15 @@
+class FencePacket
+!!!143237.cpp!!!	setNumberBoardSize(in rows : uint, in cols : uint) : void
+    FenceNumbers.resize(rows, cols);
+!!!208773.cpp!!!	getFencePointCount() : uint
+    return FencePoints.size();
+!!!222341.cpp!!!	getFenceNumberXY(in row : uint, in col : uint) : uint
+    return FenceNumbers[row][col].Number;
+!!!222597.cpp!!!	setFenceNumber(in row : uint, in col : uint, in new_number : uint) : void
+    FenceNumbers[row][col].Number = new_number;
+!!!222981.cpp!!!	getNumberBoardSize(out rows : uint, out cols : uint) : void
+    FenceNumbers.size(rows, cols);
+!!!223621.cpp!!!	appendFencePoint(in NewPoint : Point2D) : void
+    FencePoints.append(NewPoint);
+!!!223749.cpp!!!	getFencePoint(in index : uint) : Point2D
+    return FencePoints[index];

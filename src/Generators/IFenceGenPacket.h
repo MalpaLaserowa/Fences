@@ -2,7 +2,7 @@
 #define GENERATORS_IFENCEGENPACKET_H
 
 
-namespace Generators { class genFencePoint; } 
+namespace Utils { class Point2D; } 
 
 namespace Generators {
 
@@ -11,11 +11,11 @@ namespace Generators {
  */
 class IFenceGenPacket {
   public:
-    virtual void setFenceNumber(unsigned int row, unsigned int coll, unsigned int new_number) = 0;
+    virtual void setFenceNumber(unsigned int row, unsigned int col, unsigned int new_number) = 0;
 
-    virtual void getNumberBoardSize(unsigned int & rows, unsigned int & colls) = 0;
+    virtual void getNumberBoardSize(unsigned int & rows, unsigned int & cols) const = 0;
 
-    virtual void appendFencePoint(const genFencePoint & NewPoint) = 0;
+    virtual void appendFencePoint(const Utils::Point2D & NewPoint) = 0;
 
 };
 

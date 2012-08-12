@@ -2,7 +2,7 @@
 #define VISUALISATION_IFENCEDRAWPACKET_H
 
 
-namespace Visualisation { class FenceVisPoint; } 
+#include "Point2D.h"
 
 namespace Visualisation {
 
@@ -11,15 +11,15 @@ namespace Visualisation {
  */
 class IFenceDrawPacket {
   public:
-    virtual unsigned int getFenceNumberXY(unsigned int row, unsigned int coll) const = 0;
+    virtual unsigned int getFenceNumberXY(unsigned int row, unsigned int col) const = 0;
 
-    const virtual FenceVisPoint& getFencePoint(unsigned int index) const = 0;
+    virtual Utils::Point2D getFencePoint(unsigned int index) const = 0;
 
-    virtual void getNumberBoardSize(unsigned int & rows, unsigned int & colls) const = 0;
+    virtual void getNumberBoardSize(unsigned int & rows, unsigned int & cols) const = 0;
 
     virtual unsigned int getFencePointCount() const = 0;
 
-    virtual ~IFenceDrawPacket();
+    virtual ~IFenceDrawPacket() {}
 
 };
 

@@ -4,10 +4,10 @@
 
 #include "IFenceVisualisation.h"
 #include "Vector2D.h"
+#include "Point2D.h"
 
 namespace Visualisation { class IFenceDrawPacket; } 
 namespace Visualisation { class TextScreenCell; } 
-namespace Visualisation { class FenceVisPoint; } 
 
 namespace Visualisation {
 
@@ -42,6 +42,10 @@ class TextPlot : public Main::IFenceVisualisation {
     TextPlot(unsigned int rows, unsigned int cols);
 
     virtual ~TextPlot();
+
+
+  protected:
+    virtual Utils::Point2D scalePoint(const Utils::Point2D & point, double scale_factor);
 
 };
 

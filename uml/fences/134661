@@ -1,6 +1,6 @@
 format 74
 "FencePacket" // FencePacket
-  revision 6
+  revision 8
   modified_by 5 "Ladi"
   // class settings
   //class diagram settings
@@ -28,7 +28,7 @@ format 74
   
   cpp_h_dir "FencePacket"
   cpp_src_dir "FencePacket"
-  cpp_namespace "FencePacket"
+  cpp_namespace "FencePack"
   classview 134661 "FencePacket"
     //class diagram settings
     draw_all_relations default hide_attributes default hide_operations default hide_getset_operations default show_members_full_definition default show_members_visibility default show_members_stereotype default show_members_context default show_members_multiplicity default show_members_initialization default show_attribute_modifiers default member_max_width 0 show_parameter_dir default show_parameter_name default package_name_in_tab default class_drawing_mode default drawing_language default show_context_mode default auto_label_position default show_relation_modifiers default show_relation_visibility default show_infonote default shadow default show_stereotype_properties default
@@ -65,7 +65,7 @@ ${inlines}
       
       comment "Class representing one number forming the fence number grind."
       attribute 141829 "Number"
-	private explicit_type "uint"
+	public explicit_type "uint"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -75,7 +75,7 @@ ${inlines}
       end
 
       attribute 141957 "ToBePrinted"
-	private explicit_type "bool"
+	public explicit_type "bool"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -100,7 +100,7 @@ ${inlines}
       comment "This class defines a data packet describing the fence."
       classrelation 142469 // FenceNumbers (<directional composition>)
 	relation 142341 *-->
-	  stereotype "Vector2D"
+	  stereotype "Utils::Vector2D"
 	  a role_name "FenceNumbers" multiplicity "*" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
 "
@@ -108,14 +108,14 @@ ${inlines}
 	  b parent class_ref 141957 // FenceNumber
       end
 
-      classrelation 143237 // FencePoints (<directional composition>)
-	relation 143109 *-->
-	  stereotype "LinkedList"
+      classrelation 206213 // FencePoints (<directional composition>)
+	relation 206085 *-->
+	  stereotype "Utils::LinkedList"
 	  a role_name "FencePoints" multiplicity "*" private
 	    cpp default "    ${comment}${static}${mutable}${volatile}${const}${stereotype}<${type}> ${name}${value};
 "
-	    classrelation_ref 143237 // FencePoints (<directional composition>)
-	  b parent class_ref 142469 // FencePoint
+	    classrelation_ref 206213 // FencePoints (<directional composition>)
+	  b parent class_ref 184325 // Point2D
       end
 
       classrelation 143877 // <realization>
@@ -138,63 +138,11 @@ ${inlines}
 	preserve_cpp_body_indent public explicit_return_type "void"
 	nparams 2
 	  param in name "rows" explicit_type "uint"
-	  param in name "colls" explicit_type "uint"
+	  param in name "cols" explicit_type "uint"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
   ${body}}
-"
-	preserve_java_body_indent 
-	preserve_php_body_indent 
-	preserve_python_body_indent 
-	
-      end
-
-      operation 150149 "setFenceNumber"
-	preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
-	nparams 3
-	  param in name "row" explicit_type "uint"
-	  param in name "coll" explicit_type "uint"
-	  param in name "new_number" explicit_type "uint"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
-"
-	preserve_java_body_indent 
-	preserve_php_body_indent 
-	preserve_python_body_indent 
-	
-      end
-
-      operation 150277 "getNumberBoardSize"
-	preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
-	nparams 2
-	  param out name "rows" explicit_type "uint"
-	  param out name "colls" explicit_type "uint"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}, ${t1} & ${p1}${)}${const}${volatile}${throw}${abstract};
-"
-	preserve_java_body_indent 
-	preserve_php_body_indent 
-	preserve_python_body_indent 
-	
-      end
-
-      operation 150405 "appendFencePoint"
-	preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
-	nparams 1
-	  param in name "NewPoint" type class_ref 128133 // genFencePoint
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
-"
-	preserve_java_body_indent 
-	preserve_php_body_indent 
-	preserve_python_body_indent 
-	
-      end
-
-      operation 150533 "getFenceNumberXY"
-	preserve_cpp_body_indent cpp_virtual public explicit_return_type "uint"
-	nparams 2
-	  param in name "row" explicit_type "uint"
-	  param in name "coll" explicit_type "uint"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	preserve_java_body_indent 
 	preserve_php_body_indent 
@@ -216,35 +164,126 @@ ${inlines}
 	
       end
 
-      operation 208901 "getFencePoint"
-	preserve_cpp_body_indent const cpp_virtual public return_type class_ref 144005 // FenceVisPoint
-	nparams 1
-	  param in name "index" explicit_type "uint"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type}* ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+      operation 222341 "getFenceNumberXY"
+	preserve_cpp_body_indent const cpp_virtual public explicit_return_type "uint"
+	nparams 2
+	  param in name "row" explicit_type "uint"
+	  param in name "col" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
 "
 	preserve_java_body_indent 
 	preserve_php_body_indent 
 	preserve_python_body_indent 
 	
       end
+
+      operation 222597 "setFenceNumber"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	nparams 3
+	  param in name "row" explicit_type "uint"
+	  param in name "col" explicit_type "uint"
+	  param in name "new_number" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}, ${t2} ${p2}${v2}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} ${p1}, ${t2} ${p2}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 222981 "getNumberBoardSize"
+	preserve_cpp_body_indent const cpp_virtual public explicit_return_type "void"
+	nparams 2
+	  param out name "rows" explicit_type "uint"
+	  param out name "cols" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}, ${t1} & ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} & ${p0}, ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 223621 "appendFencePoint"
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type "void"
+	nparams 1
+	  param in name "NewPoint" type class_ref 184325 // Point2D
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 223749 "getFencePoint"
+	preserve_cpp_body_indent const cpp_virtual public return_type class_ref 184325 // Point2D
+	nparams 1
+	  param in name "index" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      classrelation 206341 // <dependency>
+	relation 206213 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 206341 // <dependency>
+	  b parent class_ref 135429 // Vector2D
+      end
+
+      classrelation 206469 // <dependency>
+	relation 206341 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 206469 // <dependency>
+	  b parent class_ref 142597 // LinkedList
+      end
     end
 
-    class 142469 "FencePoint"
+    class 184581 "TestFencePacket"
       visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
+      cpp_decl "${comment}${template}class ${name} : public CxxTest::TestSuite {
 ${members}};
-${inlines}
-"
+
+${inlines}"
       java_decl ""
       php_decl ""
       python_2_2 python_decl ""
       idl_decl ""
       explicit_switch_type ""
       
-      comment "Helper class representing 2D point."
-      attribute 142341 "x"
-	private explicit_type "uint"
-	multiplicity "1"
+      ncouples 1
+      key "CxxTestSuite" value "1"
+      classrelation 206597 // <dependency>
+	relation 206469 -_->
+	  a package
+	    cpp default "#include in header"
+	    classrelation_ref 206597 // <dependency>
+	  b parent class_ref 128901 // FencePacket
+      end
+
+      attribute 178821 "pTestObj"
+	public explicit_type "FencePack::FencePacket*"
 	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
 "
 	java_decl ""
@@ -253,14 +292,130 @@ ${inlines}
 	idl_decl ""
       end
 
-      attribute 142469 "y"
-	private explicit_type "uint"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
+      operation 224261 "setUp"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
 "
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 224389 "tearDown"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 224517 "testSetNumberBoardSize"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 224645 "testGetFencePointCount"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 224773 "testGetFenceNumberXY"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 224901 "testSetFenceNumber"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 225029 "testGetNumberBoardSize"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 225157 "testAppendFencePoint"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
+      end
+
+      operation 225285 "testGetFencePoint"
+	cpp_inline public explicit_return_type "void"
+	nparams 0
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	
+	
+	
+	
       end
     end
   end
@@ -276,8 +431,6 @@ ${inlines}
 
 ${comment}
 ${includes}
-using namespace Utils;
-
 ${declarations}
 ${namespace_start}
 ${definition}
@@ -291,8 +444,26 @@ ${members}
 ${namespace_end}"
       associated_classes
 	class_ref 141957 // FenceNumber
-	class_ref 142469 // FencePoint
 	class_ref 128901 // FencePacket
+      end
+    end
+
+    artifact 189573 "FencePacketTests"
+      stereotype "source"
+      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
+#define ${NAMESPACE}_${NAME}_H
+
+${comment}
+#include <cxxtest/TestSuite.h>
+${includes}
+${declarations}
+
+${definition}
+
+#endif
+"
+      associated_classes
+	class_ref 184581 // TestFencePacket
       end
     end
   end

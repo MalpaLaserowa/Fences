@@ -1,14 +1,27 @@
 class TestVector2D
 !!!173701.cpp!!!	setUp() : void
-pTestObj = new Utils::Vector2D();
+  pTestObj = new Utils::Vector2D<int>();
 !!!173829.cpp!!!	tearDown() : void
-delete pTestObj;
+  delete pTestObj;
 !!!173957.cpp!!!	testVector2D() : void
-
-	TS_WARN("Test testVector2D() not implemented");
+  
+    //TS_WARN("Test testVector2D() not implemented");
 !!!174085.cpp!!!	testOperatorSubscript() : void
-
-	TS_WARN("Test testOperatorSubscript() not implemented");
+  
+    //TS_WARN("Test testOperatorSubscript() not implemented");
 !!!174213.cpp!!!	testResize() : void
 
-	TS_WARN("Test testResize() not implemented");
+    pTestObj->resize(5, 2);
+
+    (*pTestObj)[4][1] = 12;
+    TS_ASSERT_EQUALS((*pTestObj)[4][1], 12);
+
+    (*pTestObj)[0][1] = 8;
+    TS_ASSERT_EQUALS((*pTestObj)[0][1], 8);
+
+    unsigned int rows, colls;
+
+    pTestObj->size(rows, colls);
+    TS_ASSERT_EQUALS(rows, 5);
+    TS_ASSERT_EQUALS(colls, 2);
+

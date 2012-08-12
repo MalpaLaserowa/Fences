@@ -4,13 +4,13 @@
 
 #include "IFenceNumberSelector.h"
 
-namespace FencePacket { class FencePacket; } 
+namespace FencePack { class FencePacket; } 
 
 namespace Generators {
 
 class NumberSelector : public Main::IFenceNumberSelector {
   public:
-    virtual void selectNumbersToPrint(FencePacket::FencePacket & fpacket);
+    virtual void selectNumbersToPrint(FencePack::FencePacket & fpacket);
 
     NumberSelector();
 

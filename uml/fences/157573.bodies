@@ -1,8 +1,8 @@
 class TestExpansiveGenerator
 !!!159493.cpp!!!	setUp() : void
-pTestObj = new Generators::ExpansiveGenerator();
+  pTestObj = new Generators::ExpansiveGenerator();
 !!!159621.cpp!!!	tearDown() : void
-delete pTestObj;
+  delete pTestObj;
 !!!159749.cpp!!!	testGenerateFenceAndNumbers() : void
-
-	TS_WARN("Test testGenerateFenceAndNumbers() not implemented");
+  
+  	TS_WARN("Test testGenerateFenceAndNumbers() not implemented");

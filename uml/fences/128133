@@ -1,6 +1,6 @@
 format 74
 "main" // main
-  revision 8
+  revision 9
   modified_by 5 "Ladi"
   // class settings
   //class diagram settings
@@ -180,6 +180,19 @@ ${inlines}
 	abstract preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
 	nparams 0
 	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw} {};
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
+      end
+
+      operation 223877 "scalePoint"
+	abstract preserve_cpp_body_indent cpp_virtual protected return_type class_ref 184325 // Point2D
+	nparams 2
+	  param in name "point" type class_ref 184325 // Point2D
+	  param in name "scale_factor" explicit_type "double"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
 "
 	preserve_java_body_indent 
 	preserve_php_body_indent 

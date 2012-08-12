@@ -24,9 +24,11 @@ class Vector2D {
 
     QVector<T> & operator[](unsigned int Index);
 
+    const QVector<T> & operator[](unsigned int Index) const;
+
     void resize(unsigned int rows, unsigned int colls);
 
-    void size(unsigned int & rows, unsigned int & colls);
+    void size(unsigned int & rows, unsigned int & colls) const;
 
 };
 template<class T>
@@ -51,6 +53,13 @@ QVector<T> & Vector2D<T>::operator[](unsigned int Index) {
 }
 
 template<class T>
+const QVector<T> & Vector2D<T>::operator[](unsigned int Index) const {
+  // Bouml preserved body begin 00036785
+	return array[Index];
+  // Bouml preserved body end 00036785
+}
+
+template<class T>
 void Vector2D<T>::resize(unsigned int rows, unsigned int colls) {
   // Bouml preserved body begin 00022905
     array.resize(rows);
@@ -65,7 +74,7 @@ void Vector2D<T>::resize(unsigned int rows, unsigned int colls) {
 }
 
 template<class T>
-void Vector2D<T>::size(unsigned int & rows, unsigned int & colls) {
+void Vector2D<T>::size(unsigned int & rows, unsigned int & colls) const {
   // Bouml preserved body begin 0002DD05
      rows = array.size();
      colls = array[0].size();

@@ -1,6 +1,6 @@
 format 74
 "Visualisation" // Visualisation
-  revision 6
+  revision 8
   modified_by 5 "Ladi"
   // class settings
   //class diagram settings
@@ -295,12 +295,28 @@ ${inlines}
 	  b parent class_ref 135429 // Vector2D
       end
 
-      classrelation 185733 // <dependency>
-	relation 185605 -_->
+      classrelation 206085 // <dependency>
+	relation 205957 -_->
 	  a package
 	    cpp default "#include in source"
-	    classrelation_ref 185733 // <dependency>
-	  b parent class_ref 144005 // FenceVisPoint
+	    classrelation_ref 206085 // <dependency>
+	  b parent class_ref 184325 // Point2D
+      end
+
+      operation 224133 "scalePoint"
+	preserve_cpp_body_indent cpp_virtual protected return_type class_ref 184325 // Point2D
+	nparams 2
+	  param in name "point" type class_ref 184325 // Point2D
+	  param in name "scale_factor" explicit_type "double"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}const ${t0} & ${p0}${v0}, ${t1} ${p1}${)}${const}${volatile}${throw}${abstract};
+"
+	cpp_def "${comment}${inline}${type} ${class}::${name}${(}const ${t0} & ${p0}, ${t1} ${p1}${)}${const}${volatile}${throw}${staticnl}{
+  ${body}}
+"
+	preserve_java_body_indent 
+	preserve_php_body_indent 
+	preserve_python_body_indent 
+	
       end
     end
 
@@ -321,7 +337,7 @@ ${inlines}
 	abstract preserve_cpp_body_indent const cpp_virtual public explicit_return_type "uint"
 	nparams 2
 	  param in name "row" explicit_type "uint"
-	  param in name "coll" explicit_type "uint"
+	  param in name "col" explicit_type "uint"
 	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
 "
 	preserve_java_body_indent 
@@ -331,10 +347,10 @@ ${inlines}
       end
 
       operation 143493 "getFencePoint"
-	abstract preserve_cpp_body_indent const cpp_virtual public return_type class_ref 144005 // FenceVisPoint
+	abstract preserve_cpp_body_indent const cpp_virtual public return_type class_ref 184325 // Point2D
 	nparams 1
 	  param in name "index" explicit_type "uint"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type}* ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}${)}${const}${volatile}${throw}${abstract};
 "
 	preserve_java_body_indent 
 	preserve_php_body_indent 
@@ -346,8 +362,8 @@ ${inlines}
 	abstract preserve_cpp_body_indent const cpp_virtual public explicit_return_type "void"
 	nparams 2
 	  param out name "rows" explicit_type "uint"
-	  param out name "colls" explicit_type "uint"
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}${v0}, ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
+	  param out name "cols" explicit_type "uint"
+	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} & ${p0}, ${t1} & ${p1}${)}${const}${volatile}${throw}${abstract};
 "
 	preserve_java_body_indent 
 	preserve_php_body_indent 
@@ -367,74 +383,11 @@ ${inlines}
       end
 
       operation 194437 "~IFenceDrawPacket"
-	cpp_virtual public explicit_return_type ""
+	preserve_cpp_body_indent cpp_virtual public explicit_return_type ""
 	nparams 0
-	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw};
+	cpp_decl "    ${comment}${inline}${virtual}${name}${(}${)}${volatile}${throw} {}
 "
 	cpp_def "${comment}${inline}${class}::${name}${(}${)}${volatile}${throw} {
-  ${body}}
-"
-	
-	
-	
-	
-      end
-    end
-
-    class 144005 "FenceVisPoint"
-      visibility package 
-      cpp_decl "${comment}${template}class ${name}${inherit} {
-${members}};
-${inlines}
-"
-      java_decl ""
-      php_decl ""
-      python_2_2 python_decl ""
-      idl_decl ""
-      explicit_switch_type ""
-      
-      attribute 144645 "x"
-	public explicit_type "uint"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      attribute 144773 "y"
-	public explicit_type "uint"
-	cpp_decl "    ${comment}${static}${mutable}${volatile}${const}${type} ${name}${value};
-"
-	java_decl ""
-	php_decl ""
-	python_decl ""
-	idl_decl ""
-      end
-
-      operation 143621 "scale"
-	preserve_cpp_body_indent const public explicit_return_type "void"
-	nparams 2
-	  param in name "scaling_factor" explicit_type "double"
-	  param out name "scaled_point" type class_ref 144005 // FenceVisPoint
-	cpp_decl "    ${comment}${friend}${static}${inline}${virtual}${type} ${name}${(}${t0} ${p0}${v0}, ${t1} & ${p1}${v1}${)}${const}${volatile}${throw}${abstract};
-"
-	cpp_def "${comment}${inline}${type} ${class}::${name}${(}${t0} ${p0}, ${t1} & ${p1}${)}${const}${volatile}${throw}${staticnl}{
-  ${body}}
-"
-	preserve_java_body_indent 
-	preserve_php_body_indent 
-	preserve_python_body_indent 
-	
-      end
-
-      operation 201861 "FenceVisPoint"
-	preserve_cpp_body_indent public explicit_return_type ""
-	nparams 0
-	cpp_decl "    ${comment}${inline}${name}${(}${)}${volatile}${throw};
-"
-	cpp_def "${comment}${inline}${class}::${name}${(}${)}${throw}{
   ${body}}
 "
 	preserve_java_body_indent 
@@ -544,29 +497,6 @@ ${namespace_end}
 "
       associated_classes
 	class_ref 143877 // IFenceDrawPacket
-      end
-    end
-
-    artifact 150277 "FenceVisPoint"
-      stereotype "source"
-      cpp_h "#ifndef ${NAMESPACE}_${NAME}_H
-#define ${NAMESPACE}_${NAME}_H
-
-${comment}
-${includes}
-${declarations}
-${namespace_start}
-${definition}
-${namespace_end}
-#endif
-"
-      cpp_src "${comment}
-${includes}
-${namespace_start}
-${members}
-${namespace_end}"
-      associated_classes
-	class_ref 144005 // FenceVisPoint
       end
     end
 
